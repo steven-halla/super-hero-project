@@ -12,7 +12,7 @@ def index(request):
     return render(request, 'superheroes/index.html', context)
 
 def detail(request, hero_id):
-    single_hero = Superhero.objects.get(pk=hero_id)
+    single_hero = Superhero.objects.filter(pk=hero_id)
     context = {
         'single_hero': single_hero
     }
