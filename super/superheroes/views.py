@@ -12,9 +12,9 @@ def index(request):
     return render(request, 'superheroes/index.html', context)
 
 def detail(request, hero_id):
-    single_hero = Superhero.objects.filter(pk=hero_id)
+    hero = Superhero.objects.get(pk=hero_id)
     context = {
-        'single_hero': single_hero
+        'hero': hero
     }
     return render(request, 'superheroes/detail.html', context)
 
@@ -33,19 +33,20 @@ def create(request):
         return render(request, 'superheroes/create.html')
 
 def update(request, hero_id):
-    single_hero = Superhero.objects.update(pk=hero_id)
+    hero = Superhero.objects.get(pk=hero_id)
     context = {
-        'single_hero': single_hero
+        'hero': hero
     }
-    if request.method == "PUT":
-        print("Hit with put")
-        name = request.PUT.get('name')
-        alter_ego = request.PUT.get('alter_ego')
-        primary = request.PUT.get('primary')
-        secondary = request.PUT.get('secondary')
-        catchphrase = request.PUT.get('catchphrase')
-        update_hero = Superhero(name=name, alter_ego=alter_ego, primary_ability=primary, secondary_abilith=secondary, catch_phrase=catchphrase)
-        update_hero.save()
+    print("hero " + str(hero))
+    if request.method == "POST":
+        print("Hit with PUT")
+
+        hero.name = request.POST['name']
+        hero.alter_ego = request.POST['alter_ego']
+        hero.primary = request.POST['primary']
+        hero.secondary = request.POST['secondary']
+        hero.catchphrase = request.POST['catchphrase']
+        hero.save()
         return HttpResponseRedirect(reverse('superheroes:index'))
     else:
         return render(request, 'superheroes/update.html', context)
