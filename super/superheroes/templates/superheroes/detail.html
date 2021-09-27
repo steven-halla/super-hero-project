@@ -8,13 +8,13 @@
     <title>Super hero details</title>
 </head>
 <body>
-    <h1>Hero details</h1>
-    <ul>
-        {% for hero in single_hero %}
-        <li><h2>{{hero.name}}</h2></li>
-        <li><h2>{{hero.alter_ego}}</h2></li>
-        {% endfor %}
-
-    </ul>
+<h1>Hero details</h1>
+<ul>
+    {% for hero in single_hero %}
+    <li><h2>{{hero.name}} </h2></li>
+    <li><h2>{{hero.alter_ego}}</h2></li>
+    <a href="{% url 'superheroes:delete' hero.id %}">delete hero</a>
+    {% endfor %}ç
+</ul>
 </body>
 </html>
