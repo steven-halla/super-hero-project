@@ -39,13 +39,13 @@ def update(request, hero_id):
     }
     print("hero " + str(hero))
     if request.method == "POST":
-        print("Hit with PUT")
+        print(request.POST)
 
         hero.name = request.POST['name']
         hero.alter_ego = request.POST['alter_ego']
-        hero.primary = request.POST['primary']
-        hero.secondary = request.POST['secondary']
-        hero.catchphrase = request.POST['catchphrase']
+        hero.primary_ability = request.POST['primary_ability']
+        hero.secondary_abilith = request.POST['secondary_abilith']
+        hero.catch_phrase = request.POST['catch_phrase']
         hero.save()
         return HttpResponseRedirect(reverse('superheroes:index'))
     else:

@@ -12,8 +12,14 @@
 <ul>
     <li><h2>{{hero.name}} </h2></li>
     <li><h2>{{hero.alter_ego}}</h2></li>
+    <li><h2>{{hero.primary_ability}}</h2></li>
+    <li><h2>{{hero.secondary_abilith}}</h2></li>
+    <li><h2>{{hero.catch_phrase}}</h2></li>
+
+
     <a href="{% url 'superheroes:delete' hero.id %}">delete hero</a><br>
-    <a href="{% url 'superheroes:update' hero.id %}">update hero</a>
+    <a href="{% url 'superheroes:update' hero.id %}">update hero</a><br>
+    <a href="{% url 'superheroes:index' %}">home</a>
 </ul>
 </body>
 </html>
