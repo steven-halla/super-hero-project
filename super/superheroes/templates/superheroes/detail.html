@@ -10,11 +10,11 @@
 <body>
 <h1>Hero details</h1>
 <ul>
-    <li><h2>{{hero.name}} </h2></li>
-    <li><h2>{{hero.alter_ego}}</h2></li>
-    <li><h2>{{hero.primary_ability}}</h2></li>
-    <li><h2>{{hero.secondary_abilith}}</h2></li>
-    <li><h2>{{hero.catch_phrase}}</h2></li>
+    <li><h2>Hero Name: {{hero.name}} </h2></li>
+    <li><h2>Hero Alter Ego:{{hero.alter_ego}}</h2></li>
+    <li><h2>Hero primary ability: {{hero.primary_ability}}</h2></li>
+    <li><h2>Hero second ability:{{hero.secondary_abilith}}</h2></li>
+    <li><h2>Hero Catch Phrase:{{hero.catch_phrase}}</h2></li>
 
 
     <a href="{% url 'superheroes:delete' hero.id %}">delete hero</a><br>
